@@ -8,7 +8,6 @@ const bodyParser = require("body-parser")
 
 const jwt = require("jsonwebtoken")
 const {getUsers, deleteUser, createUser} = require ("./usersEndpoints")
-const {getInterests, deleteInterest, createInterest} = require("./interestsEndpoints")
 const {getMatches, deleteMatch, newMatch} = require("./matchesEndpoint")
 
 app.use(cors({origin: true}))
@@ -18,10 +17,6 @@ app.get("/users", isAuthorized, getUsers )
 app.delete("/users/:userID", isAuthorized, deleteUser )
 app.post("/users", isAuthorized, createUser )
 
-
-app.get("/users/:userID/interests", isAuthorized, getInterests )
-app.delete("/users/:userID/interests/:interest", isAuthorized, deleteInterest )
-app.post("/users/:userID/interests", isAuthorized, createInterest )
 
 app.get("/users/:userID/matches", isAuthorized, getMatches )
 app.delete("/users/:userID/matches/:match", isAuthorized, deleteMatch )
