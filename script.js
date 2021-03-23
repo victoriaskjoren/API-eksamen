@@ -1,7 +1,6 @@
 class User {
 
     matches = [];
-    images = [];
 
     constructor (fullName1, email, password, age, userID){
         this.fullName1 = fullName1;
@@ -45,5 +44,6 @@ module.exports = {
         return users;
     },
    
-    Match: Match
+    Match: Match,
+    User: User
 }

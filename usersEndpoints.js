@@ -1,4 +1,4 @@
-const { getUsers } = require("./script");
+const { getUsers, User } = require("./script");
 
 module.exports = {
     getUsers(req, res){
@@ -26,7 +26,7 @@ module.exports = {
     createUser(req,res){
         const users = getUsers();
         // Oppretter en ny bruker, også hardcoded
-        const user3 = new FreeUser ("Markus", 19, "Male", [2000, 05, 26], 3);
+        const user3 = new User("Markus", "mail", "password", 19, 3);
         users.push(user3)
         // returnerer response som sender instansen user3
         return res.status(201).send(user3)
@@ -47,4 +47,3 @@ module.exports = {
 
 
 
-//curl -X "POST" -H "Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJib2R5Ijoic3R1ZmYiLCJpYXQiOjE2MDI3ODg3NzJ9.S9pXqz-mCvMtGC8MWc7ZjV6XghrvWvdUCy-Xm5eucWE" http://localhost:3001/users
